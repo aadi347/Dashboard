@@ -1,9 +1,12 @@
 import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import { PropertyRegistration } from './models/FlatRegistrationModel.js';
 
 const app = express();
 const port = 3000;
 
-// write your code here 
+
 
 
 
