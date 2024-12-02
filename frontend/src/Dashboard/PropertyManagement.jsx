@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { FaMapMarkerAlt, FaRupeeSign, FaParking, FaHome, FaBolt, FaEdit, FaTrash} from 'react-icons/fa'; // Importing icons
 import { MdOutlineBedroomParent } from 'react-icons/md';
 
@@ -8,7 +8,7 @@ const PropertyManagement = () => {
   const [flats, setFlats] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  
 
   useEffect(() => {
     // Fetch data from the backend
@@ -51,9 +51,7 @@ const PropertyManagement = () => {
     return <p className="text-center text-red-500">{error}</p>;
   }
 
-  const handleButtonClick = () => {
-    navigate('/addFlat');
-  };
+
 
   return (
     <div className="p-6">
@@ -61,7 +59,7 @@ const PropertyManagement = () => {
 
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {flats.map((flat) => (
-      <div key={flat._id} className="bg-white shadow-md rounded-lg overflow-hidden">
+      <div key={flat._id} className="bg-white shadow-xl rounded-3xl overflow-hidden">
         <img 
           src={flat.imageURL || 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJlYXV0aWZ1bCUyMGhvdXNlfGVufDB8fDB8fHww'} // Replace with dynamic image URL or default
           alt={flat.houseName} 
@@ -99,14 +97,7 @@ const PropertyManagement = () => {
     ))}
   </div>
 
-  <div className="flex justify-center mt-8">
-    <button
-      className="bg-gradient-to-r from-custom-green to-custom-purple text-white px-6 py-2 rounded-lg hover:bg-red-600 transition"
-      onClick={handleButtonClick}
-    >
-      Add Flat
-    </button>
-  </div>
+ 
 </div>
   );
 };
