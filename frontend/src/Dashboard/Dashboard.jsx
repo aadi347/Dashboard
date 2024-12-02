@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropertyManagement from './PropertyManagement.jsx';
 import ProfileSettings from "./ProfileSettings.jsx";
 import SupportAndResources from "./SupportAndResources.jsx";
+import AddProperty from './addFlat.jsx';
 
 const Dashboard = () => {
   // State to track which section is active
@@ -17,6 +18,8 @@ const Dashboard = () => {
         return <ProfileSettings />;
       case 'SupportAndResources':
         return <SupportAndResources />;
+      case 'AddProperty':
+      return <AddProperty />;
       default:
         return <PropertyManagement />;
     }
@@ -50,6 +53,14 @@ const Dashboard = () => {
               onClick={() => setActiveSection('SupportAndResources')}
             >
               Support and Resources
+            </button>
+          </li>
+          <li>
+            <button 
+              className={`w-full text-left p-2 rounded-3xl ${activeSection === 'AddProperty' ? 'bg-gradient-to-r from-custom-green to-custom-purple text-white' : ''}`}
+              onClick={() => setActiveSection('AddProperty')}
+            >
+              AddProperty
             </button>
           </li>
         </ul>
